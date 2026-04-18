@@ -47,6 +47,11 @@ public class ProductSteps {
         inventoryPage().addProductToCart(productName);
     }
 
+    @When("user removes the product {string} from the cart")
+    public void userRemovesTheProductFromTheCart(String productName) {
+        inventoryPage().removeProductFromCart(productName);
+    }
+
     @Then("the cart badge should show {int}")
     public void theCartBadgeShouldShow(int expectedCount) {
         assertThat(inventoryPage().header().hasCartBadgeCount(expectedCount))
@@ -73,6 +78,13 @@ public class ProductSteps {
     public void theProductShouldBeMarkedAsAddedToTheCart(String productName) {
         assertThat(inventoryPage().isProductAddedToCart(productName))
                 .as("Product %s should switch to the added-to-cart state", productName)
+                .isTrue();
+    }
+
+    @Then("the product {string} should be available to add to the cart again")
+    public void theProductShouldBeAvailableToAddToTheCartAgain(String productName) {
+        assertThat(inventoryPage().canAddProductToCart(productName))
+                .as("Product %s should return to the add-to-cart state", productName)
                 .isTrue();
     }
 }

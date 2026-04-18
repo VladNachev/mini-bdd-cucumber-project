@@ -66,6 +66,14 @@ public class InventoryPage extends BasePage {
         return isVisible(By.id("remove-" + toProductSlug(productName)));
     }
 
+    public void removeProductFromCart(String productName) {
+        clickUsingJs(By.id("remove-" + toProductSlug(productName)));
+    }
+
+    public boolean canAddProductToCart(String productName) {
+        return isVisible(By.id("add-to-cart-" + toProductSlug(productName)));
+    }
+
     private String toProductSlug(String productName) {
         return productName.trim().toLowerCase().replace(" ", "-");
     }

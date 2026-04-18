@@ -21,3 +21,5 @@ Feature: Products
     Given user is logged in as standard user
     When user adds the product "Sauce Labs Backpack" to the cart
     Then the product "Sauce Labs Backpack" should be marked as added to the cart
+    When user removes the product "Sauce Labs Backpack" from the cart
+    Then the product "Sauce Labs Backpack" should be available to add to the cart again
