@@ -1,7 +1,5 @@
 # Mini BDD Cucumber Framework
 
-Production-ready UI automation framework for [SauceDemo](https://www.saucedemo.com/) using Java, Selenium, Cucumber, JUnit 5, and Page Object Model.
-
 ## Stack
 
 - Java 21
@@ -61,26 +59,3 @@ src
 ```bash
 mvn clean test
 ```
-
-## Useful Overrides
-
-You can override properties with JVM system properties:
-
-```bash
-mvn clean test -Dbrowser=edge -Dheadless=true
-```
-
-Available keys:
-
-- `base.url`
-- `browser`
-- `headless`
-- `explicit.wait.seconds`
-- `page.load.timeout.seconds`
-- `script.timeout.seconds`
-
-## Notes
-
-- Selenium Manager is used through Selenium 4 to resolve the browser driver automatically.
-- Parallel scenario execution is enabled in `junit-platform.properties`.
-- Assertions intentionally live in step definitions, not in page objects.
